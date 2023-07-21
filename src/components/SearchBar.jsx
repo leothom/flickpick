@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faFilm } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
@@ -21,7 +21,10 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="flex items-center justify-between">
-      <div className="text-2xl font-bold text-blue-500 mr-4">FlickPick</div>
+      <div className="text-2xl font-bold text-blue-500 mr-4">
+        <FontAwesomeIcon icon={faFilm} className="fa-fw" />
+        FlickPick
+      </div>
 
       {!isFullScreen && (
         <button className="lg:hidden" onClick={() => setIsFullScreen(true)}>
