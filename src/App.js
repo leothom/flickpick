@@ -72,7 +72,7 @@ const App = () => {
           </button>
         </div>
         {
-          resultType === 'movies' ? (
+          resultType === 'movies' || resultType === 'tv-shows' ? (
             <MovieList movies={movies} />
           ) : resultType === 'people' ? (
             <PeopleList people={results} />
