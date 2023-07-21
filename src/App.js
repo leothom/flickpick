@@ -2,19 +2,21 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
+import PeopleList from './components/PeopleList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
 
   const [movies, setMovies] = useState([]);
-  const [darkMode, setDarkMode] = useState(true); // Set initial mode to light
+  const [results, setResults] = useState([]); 
+  const [resultType, setResultType] = useState(''); 
+  const [darkMode, setDarkMode] = useState(true);
   const handleMoviesUpdate = (movies) => {
     setMovies(movies);
   }
 
   const handleSearch = (searchText, category) => {
-    // Modify the URL based on the category
     let url;
     switch (category) {
       case 'movies':
@@ -31,11 +33,18 @@ const App = () => {
     }
   
     fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        // Update state with the search results
+    .then((response) => response.json())
+    .then((data) => {
+      // Update state with the search results
+      setResultType(category);
+      if (category === 'people') {
+        // 'people' category results are inside the 'results' property
+        setResults(data.results);
+      } else {
+        // 'movies' and 'tv-shows' categories results are directly in the data
         setMovies(data.results);
-      });
+      }
+    });
   };
 
   useEffect(() => {
@@ -62,7 +71,15 @@ const App = () => {
             <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
           </button>
         </div>
-        <MovieList movies={movies} />
+        {
+          resultType === 'movies' ? (
+            <MovieList movies={movies} />
+          ) : resultType === 'people' ? (
+            <PeopleList people={results} />
+          ) : null
+        }
+
+
       </div>
     </div>
     );  
