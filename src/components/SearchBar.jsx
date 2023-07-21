@@ -21,10 +21,11 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <>
+    <div className="flex items-center justify-between">
+      <div className="text-2xl font-bold text-blue-500 mr-4">FlickPick</div>
       {!isSearchOpen && (
         <button
-          className="md:hidden block"
+          className="md:hidden"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <FontAwesomeIcon icon={faSearch} />
@@ -36,7 +37,10 @@ const SearchBar = ({ onSearch }) => {
           isSearchOpen ? "block" : "hidden"
         } md:flex items-center space-x-4`}
       >
-        <form onSubmit={handleSearch} className="flex items-center space-x-4">
+        <form
+          onSubmit={handleSearch}
+          className="flex items-center space-x-4 w-full"
+        >
           <input
             type="text"
             value={searchText}
@@ -61,7 +65,7 @@ const SearchBar = ({ onSearch }) => {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
