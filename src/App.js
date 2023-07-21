@@ -56,37 +56,37 @@ const App = () => {
 
     return (
       <div className={`App ${darkMode ? 'dark' : ''}`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
-          <SearchBar onMoviesUpdate={handleMoviesUpdate} onSearch={handleSearch} /> 
-          <button
-            className={`bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ${
-              darkMode ? 'bg-gray-900 text-gray-100' : ''
-            }`}
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
-          </button>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            <SearchBar onMoviesUpdate={handleMoviesUpdate} onSearch={handleSearch} /> 
+            <button
+              className={`bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ${
+                darkMode ? 'bg-gray-700 text-gray-100' : ''
+              }`}
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+            </button>
+          </div>
+          {
+            resultType === 'movies' || resultType === 'tv-shows' ? (
+              <MovieList movies={movies} />
+            ) : resultType === 'people' ? (
+              <PeopleList people={results} />
+            ) : null
+          }
+
+        <footer className="w-full text-center border-t border-grey p-4 mt-4 bottom-0">
+          <img 
+            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" 
+            alt="The Movie DB"
+            className="w-64 inline-block mb-2"
+          />
+          <p className="text-gray-600 dark:text-white">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+        </footer>
+
+
         </div>
-        {
-          resultType === 'movies' || resultType === 'tv-shows' ? (
-            <MovieList movies={movies} />
-          ) : resultType === 'people' ? (
-            <PeopleList people={results} />
-          ) : null
-        }
-
-      <footer className="w-full text-center border-t border-grey p-4 mt-4 bottom-0">
-        <img 
-          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" 
-          alt="The Movie DB"
-          className="w-64 inline-block mb-2"
-        />
-        <p className="text-gray-600 dark:text-white">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-      </footer>
-
-
-      </div>
     </div>
     );  
   };
