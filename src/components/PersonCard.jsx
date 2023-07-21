@@ -13,9 +13,9 @@ function PersonCard({ person }) {
         {person.known_for && person.known_for.length > 0 && (
           <p className="mt-3 text-base text-gray-500 dark:text-gray-400 line-clamp-3">
             Known for:{" "}
-            {person.known_for.map(
-              (work, index) => (index ? ", " : "") + work.title
-            )}
+            {person.known_for
+              .filter((work) => work.title)
+              .map((work, index) => (index ? ", " : "") + work.title)}
           </p>
         )}
       </div>
