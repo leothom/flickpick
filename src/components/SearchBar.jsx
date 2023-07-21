@@ -22,8 +22,10 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="text-2xl font-bold text-blue-500 mr-4">
-        <FontAwesomeIcon icon={faFilm} className="fa-fw" />
-        FlickPick
+        <a href="/">
+          <FontAwesomeIcon icon={faFilm} className="fa-fw" />
+          FlickPick
+        </a>
       </div>
 
       {!isFullScreen && (
