@@ -14,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
 
   SearchBar.propTypes = {
     onMoviesUpdate: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired, // Added this line
+    onSearch: PropTypes.func.isRequired,
   };
 
   return (

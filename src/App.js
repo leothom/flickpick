@@ -2,14 +2,13 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
-import MovieDetail from './components/MovieDetail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
 
   const [movies, setMovies] = useState([]);
-  const [darkMode, setDarkMode] = useState(false); // Set initial mode to light
+  const [darkMode, setDarkMode] = useState(true); // Set initial mode to light
   const handleMoviesUpdate = (movies) => {
     setMovies(movies);
   }
