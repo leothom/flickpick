@@ -3,7 +3,7 @@ import React from "react";
 function PersonCard({ person }) {
   const imageUrl = person.profile_path
     ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
-    : "placeholder.jpeg"; // Placeholder image when there's no profile picture
+    : "placeholder.jpeg";
 
   return (
     <div className="rounded overflow-hidden shadow-lg m-4 w-full dark:bg-gray-800">

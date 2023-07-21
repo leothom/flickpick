@@ -7,7 +7,7 @@ function formatTitleForURL(title) {
 const MovieCard = ({ movie }) => {
   const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-    : "placeholder.jpeg"; // Specify the path to your placeholder image here
+    : "placeholder.jpeg";
   const tmdbUrl = `https://www.themoviedb.org/movie/${movie.id}`;
 
   const voteAverage = movie.vote_average ? movie.vote_average.toFixed(2) : null;

@@ -10,8 +10,6 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-
-    // Pass the searchText and category up to the parent component
     onSearch(searchText, category);
   };
 

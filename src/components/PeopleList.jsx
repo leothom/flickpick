@@ -1,5 +1,5 @@
 import React from "react";
-import PersonCard from "./PersonCard"; // Remember to create this component
+import PersonCard from "./PersonCard";
 
 const PeopleList = ({ people }) => {
   return (

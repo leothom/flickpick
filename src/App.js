@@ -35,13 +35,10 @@ const App = () => {
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // Update state with the search results
       setResultType(category);
       if (category === 'people') {
-        // 'people' category results are inside the 'results' property
         setResults(data.results);
       } else {
-        // 'movies' and 'tv-shows' categories results are directly in the data
         setMovies(data.results);
       }
     });
