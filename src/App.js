@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
 
@@ -58,7 +60,7 @@ const App = () => {
             }`}
             onClick={() => setDarkMode(!darkMode)}
           >
-            <span>{darkMode ? 'Light' : 'Dark'} Mode</span>
+            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
           </button>
         </div>
         <MovieList movies={movies} />
