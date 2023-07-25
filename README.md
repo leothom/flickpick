@@ -2,6 +2,10 @@
 
 FlickPick is a simple and intuitive movie, TV show, and people search app using the TMDB API.
 
+The goal of this project was to demonstrate familiarity working with APIs and displaying different types of media in a UI.
+
+Disclaimer: This product uses the TMDb API but is not endorsed or certified by TMDb.
+
 ## Features
 
 1. Search for movies, TV shows, and people.
