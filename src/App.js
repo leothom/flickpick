@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
+import TVList from './components/TVList';
 import PeopleList from './components/PeopleList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
@@ -69,8 +70,10 @@ const App = () => {
             </button>
           </div>
           {
-            resultType === 'movies' || resultType === 'tv-shows' ? (
+            resultType === 'movies' ? (
               <MovieList movies={movies} />
+            ) : resultType === 'tv-shows' ? (
+              <TVList movies={movies} />
             ) : resultType === 'people' ? (
               <PeopleList people={results} />
             ) : null
